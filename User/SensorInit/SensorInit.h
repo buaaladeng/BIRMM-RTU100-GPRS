@@ -6,7 +6,7 @@
 
 #define DEVICE   BIRMM_RTU100                            //设备类型为燃气智能监测终端
 #define REPORTDATA  GAS                                  //上报数据为气体浓度
-#define TYPESEND   TYPE_433                              //传输类型选型433通信
+#define TYPESEND   TYPE_GPRS                              //传输类型选型GPRS通信
 #define SENSORID {0x31,0x20,0x16,0x08,0x31,0x02}         //传感器ID号
 #define SOFTVERSION 0x20                                 //软件版本号
 #define HARDVERSION 0x10                                 //硬件版本号

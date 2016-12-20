@@ -28,7 +28,7 @@
 #include "gprs.h"
 #include "SPI_Flash.h"
 
-extern struct liquid_set  DeviceConfig;     //传感器配置信息结构体
+extern struct Sensor_Set  DeviceConfig;     //传感器配置信息结构体
 extern struct SMS_Config_RegPara   ConfigData; //FLASH读取结构
 extern u8         Send_Request_flag;                         //发送数据至上位机后收到反馈
 extern u8        ReadData_flag;                       //读取传感器成功标志位，成功为1，失败为0；

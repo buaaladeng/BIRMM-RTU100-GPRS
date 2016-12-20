@@ -37,7 +37,7 @@ union  Hex_Float
  
  
  
-struct liquid_set 
+struct Sensor_Set 
 {
 	uint16_t  CollectPeriod;         //采集间隔            
 	uint16_t  SendCount;            //每次上报的上报周期    
@@ -274,15 +274,15 @@ struct  SpecialDataFrame                     //业务数据上传帧格式
 // -----------------------------------------------------------------------------
 #endif
 
-//void ConfigData_Init(struct liquid_set* Para);
-void LSLIQUSET_Handle(char* pLiqudSet, struct liquid_set* Parameter);
-void LSLIQUSET_Response(struct liquid_set* Parameter);
-void LSTIMESET_Handle(char* pLiqudSet, struct liquid_set* Parameter);
-void LSDataUpload_Finish(struct liquid_set* Parameter);
-void DataUpload_TALK_OVER(struct liquid_set* Parameter);
+//void ConfigData_Init(struct Sensor_Set* Para);
+void LSLIQUSET_Handle(char* pLiqudSet, struct Sensor_Set* Parameter);
+void LSLIQUSET_Response(struct Sensor_Set* Parameter);
+void LSTIMESET_Handle(char* pLiqudSet, struct Sensor_Set* Parameter);
+void LSDataUpload_Finish(struct Sensor_Set* Parameter);
+void DataUpload_TALK_OVER(struct Sensor_Set* Parameter);
 void Float2Hex_Aider( float DataSmooth );
 
-void LSLIQUID_DataUpload(struct liquid_set* Para);
+void LSLIQUID_DataUpload(struct Sensor_Set* Para);
 void Section_Request(void);
 void Section_Handle(void);
 

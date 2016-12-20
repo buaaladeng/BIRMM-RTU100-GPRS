@@ -16,7 +16,7 @@
 void RTC_NVIC_Config(void);
 void RTC_Configuration(void);
 //void Time_Regulate(struct rtc_time *tm);                                     //通过超级终端修改RTC时间使用
-void Time_Auto_Regulate(struct liquid_set* time_check);                        //通过服务器修改RTC时间使用
+void Time_Auto_Regulate(struct Sensor_Set* time_check);                        //通过服务器修改RTC时间使用
 //void Time_Adjust(struct rtc_time *tm);                                         //通过超级终端修改RTC时间使用
 void Time_Display(uint32_t TimeVar,struct rtc_time *tm);
 //void Time_Show(struct rtc_time *tm);

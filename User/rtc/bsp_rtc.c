@@ -225,7 +225,7 @@ void RTC_Configuration(void)
  * 输出  ：用户在超级终端中输入的时间值，单位为 s
  * 调用  ：内部调用
  */
-void Time_Auto_Regulate(struct liquid_set* TimeCorrect)
+void Time_Auto_Regulate(struct Sensor_Set* TimeCorrect)
 {
 //	  u32 Tmp_YY = 0xFF, Tmp_MM = 0xFF, Tmp_DD = 0xFF;
 //	  u32 Tmp_HH = 0xFF, Tmp_MI = 0xFF, Tmp_SS = 0xFF;

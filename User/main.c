@@ -41,7 +41,7 @@ struct    rtc_time             systmtime;               //RTC时钟设置结构体
 uint32_t  Start_time;																		//传感器预热开始时间
 uint32_t  End_time;																			//传感器预热结束时间
 
-struct    liquid_set           DeviceConfig ={0x00};       //配置信息结构体
+struct    Sensor_Set           DeviceConfig ={0x00};       //配置信息结构体
 struct    SMS_Config_RegPara   ConfigData ={0x00};       //与FLASH交互的结构体，方便在系统进入休眠模式之前写入FLASH
 
 uint16_t  WWDOG_Feed =0x1FFF;                  //窗口看门狗复位周期为：XX*1.8s = 7.6min
@@ -569,16 +569,13 @@ void error_handle(u8* pDevID, u16 NodeAddr)
 *******************************************************************************/
 int main( void )
 {
-		
-
 	u8   i=0,j=0;
-	u8   DeviceID[6] =SENSORID; //初始化设备ID号
+	u8   DeviceID[6] =SENSORID; 											//初始化设备ID号
   u16  NodeAddr =0x0000;                            //提取设备ID号最后面两个字节作为节点地址
   
   NodeAddr=DeviceID[4]*256 +DeviceID[5];
 	PeripheralInit();                            //初始化
-  Display();
-		
+	
   //***********************************对采集数量进行处理,一次最多传15个数*****************************************************
 	SensorCollectNumber = DeviceConfig.SendCount / DeviceConfig.CollectPeriod ;
 	if(SensorCollectNumber>15)
@@ -593,10 +590,7 @@ int main( void )
 #if DEBUG_TEST	
 	printf("\r\n The Data Collect Number is %d \r\n",DeviceConfig.CollectNum );
 #endif
-	//DataCollectCount =DeviceConfig.CollectNum ;        //获取数据采集数量的标志
-
-////////////////////////////////////////////////////////////////////////////////////////	
- 
+	 
 	 //error_handle(DeviceID, NodeAddr);                 //异常处理函数
 
    Sms_Consult(DeviceID, NodeAddr);  
@@ -678,7 +672,7 @@ void PeripheralInit( void )
   PowerON_Sensor();         //打开传感器电压  12V
 	Delay_ms(500);
 	Start_time=RTC_GetCounter();             //记录传感器打开时间
-	
+	Display();
 	ConfigData_Init(&DeviceConfig);
  
   if (PowerOffReset ==1)     

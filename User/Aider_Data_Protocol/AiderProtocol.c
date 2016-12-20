@@ -11,7 +11,7 @@
 #include "SensorInit.h"
 //#include  "bsp_date.h"
 
-extern  struct liquid_set  DeviceConfig;          //液位计配置信息结构体
+extern  struct Sensor_Set  DeviceConfig;          //液位计配置信息结构体
 extern  struct    SMS_Config_RegPara   ConfigData;
 
 extern u8     DataCollectCount;                   //数据采集计数器

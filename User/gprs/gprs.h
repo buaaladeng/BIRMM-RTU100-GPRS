@@ -55,7 +55,7 @@ void Sms_Consult(u8* pDeviceID, u16 sNodeAddress);
 void  USART_DataBlock_Send(USART_TypeDef *USART_PORT,char *SendUartBuf,u16 SendLength);   //批量向串口发送数据
 
 void  SetRequest_GPRS(void);      //通过3G模块请求服务器下发配置信息
-void  ConfigData_Init(struct liquid_set* Para);
+void  ConfigData_Init(struct Sensor_Set* Para);
 unsigned char GPRS_Receive_NetLogin(void);  //模块注册网络接收信息解析
 unsigned char GPRS_Receive_TcpConnect(void);//建立TCP连接接收信息解析
 unsigned char Receive_Deal_GPRS(void);    //3G模块接收数据解析，主要用于处理MCU与3G模块之间的交互数据

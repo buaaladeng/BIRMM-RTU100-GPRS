@@ -36,7 +36,7 @@ extern char       TcpConnect_Flag;                     //TCP连接成功标志位，连接
 extern struct    SMS_Config_RegPara   ConfigData;     //定义的下发配置参数，HEX格式，方便在系统进入休眠模式之前写入BKP寄存器
 static char      RespRev_OK =0;              //成功接收服务器应答
   
-extern struct    liquid_set  DeviceConfig;   //配置信息结构体
+extern struct    Sensor_Set  DeviceConfig;   //配置信息结构体
 extern char      SetRev_OK;                  //成功接收服务器配置
 extern char      Alive;                      //不休眠标志变量,为1时说明不进行休眠处理，有待调整
 extern char      DatRev_OK ;                 //成功正确接收液位数据
@@ -436,7 +436,7 @@ void Sms_Send(char*  pSend)
 //	uint8_t  PhoneNum[13]={0x00};    //后续更改为从寄存器中读取
 	char  SendBuf[200]={0x00};                //短信发送缓存,根据最大可能的发送数据长度确定其大小
 
-//	struct liquid_set* Para= &DeviceConfig;
+//	struct Sensor_Set* Para= &DeviceConfig;
 	
 //	memcpy(PhoneNum, DeviceConfig.AlarmPhoneNum,strlen((char*)DeviceConfig.AlarmPhoneNum));          
 //	mput("AT+CNMI=1,2,0,0,0");
@@ -1563,10 +1563,8 @@ void SensorSetMessage(void)
 *******************************************************************************/
 unsigned char GPRS_Receive_NetLogin(void)
 {
-
-
 	 char*            pRecevBuff =NULL;
-
+	
 	 #if DEBUG_TEST
 	 printf("\r\nGPRS Net Login Receive Analysis ...\r\n");          //测试使用
 	 #endif
@@ -1628,9 +1626,9 @@ unsigned char GPRS_Receive_TcpConnect(void)
 *******************************************************************************/
 unsigned char GPRS_Receive_DataAnalysis(u8* pDeviceID, u16 sNodeAddress)	
 {
-	 u16               Recev_Flag2 =0;                   //接收数据正确性标志变量
-	 char*             pRecevBuff =NULL; 
-   char    					 NewMessageIndicate[7] ="+CMGL:";  //收到未读短信指示
+	 u16     Recev_Flag2 =0;                   //接收数据正确性标志变量
+	 char*   pRecevBuff =NULL; 
+   char    NewMessageIndicate[7] ="+CMGL:";  //收到未读短信指示
 
    char   RecevFromCollector[2]={0xA3,0x20};       //接收服务器发送的数据标志序列
    u8     PayloadLen =0;
@@ -1704,7 +1702,7 @@ unsigned char GPRS_Receive_DataAnalysis(u8* pDeviceID, u16 sNodeAddress)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void ConfigData_Init(struct liquid_set* Para)
+void ConfigData_Init(struct Sensor_Set* Para)
 {
 //	uint8_t  HexArry[7]   ={0x00}; 
     char     CharArry[16] ={0x00};

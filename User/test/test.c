@@ -4,7 +4,7 @@
 #include "test.h"
 
 
-extern struct liquid_set DeviceConfig;
+extern struct Sensor_Set DeviceConfig;
 
 //(1)配置采集相关信息，分别为采集周期、上传周期、重传次数、低浓度阈值、高浓度阈值
 void write_collect_parameter_to_flash(void)      //利用该函数可进行燃气智能终端采集配置   配置3G版本
